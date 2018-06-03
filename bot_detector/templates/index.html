@@ -1,10 +1,162 @@
+{% load staticfiles %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title></title>
+	<title>Table V05</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="{{ STATIC_URL }}images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}vendor/perfect-scrollbar/perfect-scrollbar.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/util.css">
+	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/main.css">
+<!--===============================================================================================-->
 </head>
 <body>
+
+	<div class="limiter">
+		<div class="container-table100">
+			<div class="wrap-table100">
+				<div class="table100 ver1">
+					<div class="table100-firstcol">
+						<table>
+							<thead>
+								<tr class="row100 head">
+									<th class="cell100 column1">Username</th>
+								</tr>
+							</thead>
+							<tbody>
+                                <tr class="row100 body">
+                                    {% for screen in screen_list %}
+                                            <td class="cell100 column1">{{ screen }}</td>
+                                    {% endfor %}
+                                </tr>
+							</tbody>
+						</table>
+					</div>
+
+                <div class="wrap-table100-nextcols js-pscroll">
+                    <div class="table100-nextcols">
+						<table>
+							<thead>
+								<tr class="row100 head">
+									<th class="cell100 column2">Is Bot?</th>
+								</tr>
+							</thead>
+							<tbody>
+                                <tr class="row100 body">
+                                    {% for bot_status in bot_status_list %}
+                                            <td class="cell100 column2">{{ bot_status }}</td>
+                                    {% endfor %}
+                                </tr>
+							</tbody>
+						</table>
+					</div>
+                <div class="wrap-table100-nextcols js-pscroll">
+                    <div class="table100-nextcols">
+						<table>
+							<thead>
+								<tr class="row100 head">
+									<th class="cell100 column3">Is Retweet?</th>
+								</tr>
+							</thead>
+							<tbody>
+                                <tr class="row100 body">
+                                    {% for rt in retweet_status_list %}
+                                        <td class="cell100 column3">{{ rt }}</td>
+                                    {% endfor %}
+                                </tr>
+							</tbody>
+						</table>
+					</div>
+                </div>
+
+
+{#					<div class="wrap-table100-nextcols js-pscroll">#}
+{#						<div class="table100-nextcols">#}
+{#							<table>#}
+{#								<tbody>#}
+{#                                <tr class="row100 body">#}
+{#                                    {% for time_status in time_status_list %}#}
+{#                                            <td class="cell100 column3">{{ time_status }}</td>#}
+{#                                    {% endfor %}#}
+{#                                </tr>#}
+{#                                </tbody>#}
+{#							</table>#}
+{#						</div>#}
+{#					</div>#}
+{#					<div class="wrap-table100-nextcols js-pscroll">#}
+{#						<div class="table100-nextcols">#}
+{#							<table>#}
+{#								<tbody>#}
+{#                                <tr class="row100 body">#}
+{#                                    {% for tweet in tweet_text_list %}#}
+{#                                        <td class="cell100 column4">{{ tweet }}</td>#}
+{#                                    {% endfor %}#}
+{#                                </tr>#}
+{#                                </tbody>#}
+{#							</table>#}
+{#						</div>#}
+{#                    </div>#}
+{#					<div class="wrap-table100-nextcols js-pscroll">#}
+{#						<div class="table100-nextcols">#}
+{#							<table>#}
+{#								<tbody>#}
+{#                                <tr class="row100 body">#}
+{#                                    {% for retweet_status in retweet_status_list %}#}
+{#                                        <td class="cell100 column5">{{ retweet_status }}</td>#}
+{#                                    {% endfor %}#}
+{#                                </tr>#}
+{#                                </tbody>#}
+{#							</table>#}
+{#						</div>#}
+{#				</div>#}
+			</div>
+		</div>
+	</div>
+
+
+<!--===============================================================================================-->
+	<script src="../static/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../static/vendor/bootstrap/js/popper.js"></script>
+	<script src="../static/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../static/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../static/vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+	<script>
+		$('.js-pscroll').each(function(){
+			var ps = new PerfectScrollbar(this);
+
+			$(window).on('resize', function(){
+				ps.update();
+			})
+
+			$(this).on('ps-x-reach-start', function(){
+				$(this).parent().find('.table100-firstcol').removeClass('shadow-table100-firstcol');
+			});
+
+			$(this).on('ps-scroll-x', function(){
+				$(this).parent().find('.table100-firstcol').addClass('shadow-table100-firstcol');
+			});
+
+		});
+
+	</script>
+<!--===============================================================================================-->
+	<script src="{{ STATIC_URL }}js/main.js"></script>
 
 </body>
 </html>

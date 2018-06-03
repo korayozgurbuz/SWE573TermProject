@@ -127,28 +127,19 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
-
-STATIC_URL = PROJECT_ROOT + '/static/'
-STATIC_ROOT = PROJECT_ROOT + '/static/'
-print (BASE_DIR)
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, '/static/'),
-)
-
-TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR, '/templates/'),
-)
-
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
 
 
-access_token = "75166266-lKHuaTrC4WBGdzp9oFvSJN2jFNe6BzEW1a7NHA59n"
-access_secret = "3gorUNeoPdJHDzV1X02zoiuygRxOO9iwG82dUmHkKWfA1"
-consumer_key = "zRuKIDvTumdERI0gi2MvoUAyG"
-consumer_secret = "UkC1vHhQpxenaxXlyS2XFOMCsmLv1vsYGeVUbc1VkHQXT3iyg0"
+STATIC_URL = PROJECT_ROOT + '/static/'
+STATIC_ROOT = PROJECT_ROOT + '/static/'
 
-avg_tweet_cutoff = 50 #bot sayilmasi icin gunde ortalama kac tweet'ten fazla atmasi gerekiyor bir profilin?
-RT_cutoff = 95 #bot sayilmasi icin RT oraninin kaca esit veya uzerinde olmasi gerekiyor
+STATICFILES_DIRS = (
+    # os.path.join(BASE_DIR, '/static/'),
+)
+
+TEMPLATE_DIRS = (
+    os.path.join(BASE_DIR, '/templates/'),
+)
