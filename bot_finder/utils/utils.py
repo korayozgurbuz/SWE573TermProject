@@ -7,7 +7,7 @@ LENGTH_OF_THE_TWEET = 3
 def get_user_tweets(api, screen_name):
     # To overcome with the rate limit
     time.sleep(1)
-    user_recent_tweets = api.user_timeline(screen_name=screen_name, count=100, include_rts=True)
+    user_recent_tweets = api.user_timeline(screen_name=screen_name, count=10, include_rts=True)
 
     count = 0
     retweets = 0

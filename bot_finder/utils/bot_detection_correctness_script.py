@@ -65,9 +65,10 @@ tweet_text_list = list()
 
 bot_file = open("Bot.txt", "r")
 
+
 for screen_name in bot_file.readlines():
     is_bot = False
-    print (screen_name)
+    print screen_name
     total_number_tweets, retweet_percentage, time_of_creation, average_no_per_day = get_user_tweets(screen_name)
     try:
         if retweet_percentage >= (RT_cutoff * 1.0):
@@ -82,11 +83,11 @@ for screen_name in bot_file.readlines():
 
         if high_RT_check or average_tweet_check:
             is_bot = True
-            print ("BOT")
+            print "BOT"
         else:
-            print ("NOT BOT")
+            print "NOT BOT"
     except Exception:
         is_bot = True
 
     bot_status_list.append(is_bot)
-print ("DONE")
+print "DONE"
